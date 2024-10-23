@@ -17,11 +17,11 @@ function global:au_SearchReplace {
 function global:au_GetLatest {
     $Releases = "https://api.github.com/repos/wavetermdev/waveterm/releases/latest"
     $PageSource = Invoke-RestMethod -Uri $Releases
-
-    if ($PageSource.tag_name -match 'v([\d.-]+)') {
+    Write-Host "tag_name=$($PageSource.tag_name)"
+    if ($PageSource.tag_name -match 'v([\d.]+)(-beta)?' -and 3 -gt $Matches.Count ) {
         $Version = $Matches[1]
     } else {
-        throw "Unable to grab tag name"
+        throw "Tag name does not match regex or is beta"
     }
 
     Write-Host "newversion=$($Version)"
