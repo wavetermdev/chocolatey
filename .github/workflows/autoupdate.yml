@@ -32,7 +32,7 @@ jobs:
       - name: Run ${{ matrix.package }} update script
         id: update
         run: |
-          cd _auto\${{ matrix.package }}
+          cd ${{ matrix.package }}
           $UpdateOutput = .\update.ps1
           $NupkgPath = (($UpdateOutput.Result | Where-Object {$_ -like '*.nupkg''*'}) -split "'")[1]
           Write-Output "NupkgPath=$($NupkgPath)" >> $Env:GITHUB_OUTPUT
