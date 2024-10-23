@@ -6,7 +6,7 @@
     <authors>Command Line Inc</authors>
     <projectUrl>https://www.waveterm.dev</projectUrl>
     <copyright>Command Line Inc</copyright>
-    <iconUrl>https://github.com/wavetermdev/waveterm/blob/main/assets/waveterm-logo-with-bg.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/wavetermdev/waveterm@main/assets/waveterm-logo-with-bg.png</iconUrl>
     <licenseUrl>https://github.com/wavetermdev/waveterm/blob/main/LICENSE</licenseUrl>
     <packageSourceUrl>https://www.github.com/wavetermdev/waveterm</packageSourceUrl>
     <docsUrl>https://docs.waveterm.dev</docsUrl>
