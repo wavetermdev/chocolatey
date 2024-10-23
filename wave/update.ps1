@@ -1,6 +1,3 @@
-# Lots of learnings for this script come care of Maurice Kevenaar
-# https://github.com/mkevenaar
-
 import-module Chocolatey-AU
 
 function global:au_BeforeUpdate($Package) {}
