@@ -1,17 +1,17 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url64        = 'https://dl.waveterm.dev/releases-w2/Wave-win32-x64-0.8.12.exe'
+$url64        = 'https://dl.waveterm.dev/releases-w2/Wave-win32-x64-0.8.12.msi'
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
-  fileType      = 'exe'
+  fileType      = 'msi'
   url64bit      = $url64
 
   softwareName  = 'Wave' 
-  checksum64    = 'A0749E49A492F3C2B4D36701A3BEE346D40FB4ECDF611DB6FF4F15CD798A6778F7C863CFED4C8DAA5F4D3CCC63F9EFAB89A9279E46B3966A2069F6BBD52F1115'
+  checksum64    = '064194834A092496B9BB3CED219C683F47A05E68A5E3F180C56C33A4FBB6CA6F02945E5812756E4B6004BF139946D2D07B0674DBEC883D2351AFEFF991680374'
   checksumType64= 'sha512'
-  silentArgs   = '/S'
-  validExitCodes= @(0)
+  silentArgs    = "/qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
+  validExitCodes= @(0, 3010, 1641)
 }
 
 Install-ChocolateyPackage @packageArgs
