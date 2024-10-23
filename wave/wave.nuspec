@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata><id>wave</id>
+    <version>0.8.12</version>
+    <title>Wave Terminal (Install)</title>
+    <authors>Command Line Inc</authors>
+    <projectUrl>https://www.waveterm.dev</projectUrl>
+    <copyright>Command Line Inc</copyright>
+    <iconUrl>https://github.com/wavetermdev/waveterm/blob/main/assets/waveterm-logo-with-bg.png</iconUrl>
+    <licenseUrl>https://github.com/wavetermdev/waveterm/blob/main/LICENSE</licenseUrl>
+    <packageSourceUrl>https://www.github.com/wavetermdev/waveterm</packageSourceUrl>
+    <docsUrl>https://docs.waveterm.dev</docsUrl>
+    <bugTrackerUrl>https://github.com/wavetermdev/waveterm/issues</bugTrackerUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <tags>wave terminal emulator shell command line developer productivity</tags>
+    <summary>An open-source, cross-platform terminal for seamless workflows</summary>
+    <description>Wave is an open-source terminal that can launch graphical widgets, controlled and integrated directly with the CLI. It includes a base terminal, directory browser, file previews (images, media, markdown), a graphical editor (for code/text files), a web browser, and integrated AI chat.
+
+Wave isn't just another terminal emulator; it's a rethink on how terminals are built. For too long there has been a disconnect between the CLI and the web. If you want fast, keyboard-accessible, easy-to-write applications, you use the CLI, but if you want graphical interfaces, native widgets, copy/paste, scrolling, variable font sizes, then you'd have to turn to the web. Wave's goal is to bridge that gap.
+
+**Please Note**: This is an automatically updated package. If you find it is
+out of date by more than a day or two, please contact the maintainer(s) and
+let them know the package is no longer updating correctly.
+</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
