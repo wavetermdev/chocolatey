@@ -5,11 +5,11 @@ function global:au_BeforeUpdate($Package) {}
 function global:au_SearchReplace {
     @{
         ".\tools\chocolateyInstall.ps1" = @{
-            "([$]url64\s*=\s*)('.*')"      = "`$1'$($Latest.URL64)'"           #1
-            "(checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"      #2
+            "(?<=url64\s*=\s*)'.*'"      = "`'$($Latest.URL64)'"           #1
+            "(?<=checksum64\s*=\s*)'.*'" = "`'$($Latest.Checksum64)'"      #2
         }
         ".\wave.nuspec" = @{
-            "(<version>)([^<]*)" = "$1$($Latest.Version)"
+            "(?<=<version>)[^<]*" = "$($Latest.Version)"
         }
     }
 }
