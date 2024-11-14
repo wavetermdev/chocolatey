@@ -31,7 +31,7 @@ function global:au_GetLatest {
     @{
         Version = $Version
         Url64 = "https://dl.waveterm.dev/releases-w2/Wave-win32-x64-$($Version).msi"
-        Checksum64 = 'sha512'
+        ChecksumType64 = 'sha512'
     }
 }
 
