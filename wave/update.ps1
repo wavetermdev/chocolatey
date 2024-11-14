@@ -9,7 +9,7 @@ function global:au_SearchReplace {
             "(checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"      #2
         }
         ".\wave.nuspec" = @{
-            "(<version>)[^<]*" = "$1$($Latest.Version)"
+            "(<version>)([^<]*)" = "$1$($Latest.Version)"
         }
     }
 }
