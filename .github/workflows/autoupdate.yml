@@ -22,6 +22,12 @@ jobs:
         ]
 
     steps:
+      - name: Get App Token
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+            app-id: ${{ vars.WAVE_BUILDER_APPID }}
+            private-key: ${{ secrets.WAVE_BUILDER_KEY }}
       - uses: actions/checkout@v4
         with:
           ref: main
@@ -52,8 +58,8 @@ jobs:
         if: steps.update.outputs.UpdateStatus == 'Update Available'
 
       - name: Commit Updated nuspec
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: getsentry/action-github-commit@v2.1.0
         with:
-          commit_message: Apply Choco package update - ${{ matrix.package }} ${{ steps.update.outputs.newversion }}
-          file_pattern: '*.nuspec *.ps1'
+          github-token: ${{steps.app-token.outputs.token}}
+          message: "chore: update nuspec and script"
         if: steps.update.outputs.UpdateStatus == 'Update Available'
