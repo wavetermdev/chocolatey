@@ -58,16 +58,7 @@ jobs:
         if: steps.update.outputs.UpdateStatus == 'Update Available'
 
       - name: Commit Updated nuspec
-        run: |
-          $HEAD = $(git rev-parse HEAD)
-          $NUSPEC_B64 = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes([System.IO.File]::ReadAllText('wave\wave.nuspec')))
-          $CHOCLATEY_B64 = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes([System.IO.File]::ReadAllText('wave\chocolateyinstall.ps1')))
-          gh api graphql -f query='
-          mutation createCommit {
-            createCommitOnBranch(input: {branch: {repositoryNameWithOwner: "wavetermdev/chocolatey", branchName: "main"}, message: {headline: "Update hello.txt"}, fileChanges: {additions: [{path: "wave/wave.nuspec", contents: "$($NUSPEC_B64)"},{path: "wave/tools/chocolateyinstall.ps1", contents:"$($CHOCOLATEY_B64)"}]}, expectedHeadOid: "$($HEAD)"}) {
-              commit {
-                url
-              }
-            }
-          }' 
+        run: scripts\Commit-Update.ps1
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         shell: pwsh
