@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url64        = 'https://dl.waveterm.dev/releases-w2/Wave-win32-x64-0.9.3.msi'
 $packageArgs = @{
