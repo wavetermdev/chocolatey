@@ -62,3 +62,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         shell: pwsh
+        if: steps.update.outputs.UpdateStatus == 'Update Available'
